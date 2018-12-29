@@ -11,7 +11,11 @@
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </head>
 <body>
-    Restaurant Page
-    <a href="{% url 'logout' %}">Log Out</a>
+    This is the login page
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Sign In </button>
+    </form>
 </body>
 </html>

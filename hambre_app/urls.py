@@ -14,17 +14,25 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from hambreApp import views
+# dont need auth_views 
 from django.contrib.auth import views as auth_views
 
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('',views.home, name='home'),
+#     path('restaurant/sign-in/', auth_views.LoginView.as_view(template_name='restaurant/sign_in.html'),
+#     name= 'restaurant-sign-in'),
+#     path('restaurant/sign-out/', auth_views.LogoutView {'next_page': '/'},
+#     name = 'restaurant-sign-out'),
+#     path('restaurant/', views.restaurant_home, name = 'restaurant-home'),
+# ]
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home, name='home'),
-    path('restaurant/sign-in/', auth_views.LoginView.as_view(template_name='restaurant/sign_in.html'),
-    name= 'restaurant-sign-in'),
-    path('restaurant/sign-out/', auth_views.LogoutView.as_view(template_name='restaurant/home.html'),
-    name = 'restaurant-sign-out'),
-    path('restaurant/', views.restaurant_home, name = 'restaurant-home'),
+    path('restaurant/', include('django.contrib.auth.urls')),
+    path('restaurant/', views.restaurant_home, name = 'restaurant-home')
 ]
