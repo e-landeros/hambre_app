@@ -18,13 +18,13 @@ from django.urls import path
 from hambreApp import views
 from django.contrib.auth import views as auth_views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home, name='home'),
-    path('restaurant/sign-in', auth_views.login,
-    {'template_name': 'restaurant/sign_in.html'},
+    path('restaurant/sign-in/', auth_views.LoginView.as_view(template_name='restaurant/sign_in.html'),
     name= 'restaurant-sign-in'),
-    path('restaurant/sign-out', auth_views.logout,
-    {'next_page': '/'},
+    path('restaurant/sign-out/', auth_views.LogoutView.as_view(template_name='restaurant/home.html'),
     name = 'restaurant-sign-out'),
+    path('restaurant/', views.restaurant_home, name = 'restaurant-home'),
 ]
