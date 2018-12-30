@@ -9,5 +9,6 @@ class Restaurant(models.Model):
     address = models.CharField(max_length=500)
     logo = models.ImageField(upload_to='restaurant_logo/', blank=False)
 
+    #used to return name of restaurant in admin site instead of id
     def __str__(self):
         return self.name
