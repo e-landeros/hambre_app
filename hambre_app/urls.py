@@ -17,7 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from hambreApp import views
 # dont need auth_views 
-from django.contrib.auth import views as auth_views
+# from django.contrib.auth import views as auth_views
+from django.views.generic.base import TemplateView
 
 
 # urlpatterns = [
@@ -34,5 +35,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home, name='home'),
     path('restaurant/', include('django.contrib.auth.urls')),
-    path('restaurant/', views.restaurant_home, name = 'restaurant-home')
+    path('restaurant/', views.restaurant_home, name = 'restaurant-home'),
+    path('restaurant/register/', views.restaurant_registration, name='resaturant-registration'),
 ]

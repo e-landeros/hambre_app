@@ -7,4 +7,7 @@ def home(request):
 
 @login_required(login_url='login')
 def restaurant_home(request):
-    return render(request, 'restaurant/home.html')
+    return render(request, 'restaurant/home.html', {})
+
+def restaurant_registration(request):
+    return render(request, 'restaurant/register.html', {})
