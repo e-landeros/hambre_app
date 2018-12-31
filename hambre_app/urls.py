@@ -39,5 +39,10 @@ urlpatterns = [
     path('restaurant/', include('django.contrib.auth.urls')),
     path('restaurant/', views.restaurant_home, name = 'restaurant-home'),
     path('restaurant/register/', views.restaurant_registration, name='resaturant-registration'),
+    path('restaurant/account/', views.restaurant_account, name='restaurant-account'),
+    path('restaurant/meal/', views.restaurant_meal, name='restaurant-meal'),
+    path('restaurant/order/', views.restaurant_order, name='restaurant-order'),
+    path('restaurant/report/', views.restaurant_report, name='restaurant-report'),
+
     url(r'^api/social/', include('rest_framework_social_oauth2.urls')),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
