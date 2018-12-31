@@ -12,3 +12,23 @@ class Restaurant(models.Model):
     #used to return name of restaurant in admin site instead of id
     def __str__(self):
         return self.name
+
+class Customer(models.Model):
+    user = models.OneToOneField(User, on_delete=models.Cascade, related_name='customer')
+    #link urls for images
+    avatar = models.CharField(max_length=500)
+    phone = models.CharField(max_length=50, blank=True)
+    address = models.CharField(max_length=500, blank=True)
+
+    def __str__(self):
+        return self.user.get_full_name()
+
+class Driver(models.Model):
+    user = models.OneToOneField(User, on_delete=models.Cascade, related_name='driver')
+    #link urls for images
+    avatar = models.CharField(max_length=500)
+    phone = models.CharField(max_length=50, blank=True)
+    address = models.CharField(max_length=500, blank=True)
+
+    def __str__(self):
+        return self.user.get_full_name()
