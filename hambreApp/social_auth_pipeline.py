@@ -2,6 +2,7 @@ from hambreApp.models import Customer, Driver
 
 ###############user object depricated from fb graph API need another way to get userid ##########
 def create_user_by_type(backend, user, request, response, *args, **kwargs):
+    # user = request.user
     if backend.name == 'facebook':
         avatar = 'https://graph.facebook.com/%s/picture?type=large' % response['id']
         
