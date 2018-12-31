@@ -16,8 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from hambreApp import views
-# dont need auth_views 
-# from django.contrib.auth import views as auth_views
+from django.contrib.auth import views as auth_views
 from django.views.generic.base import TemplateView
 from django.conf.urls.static import static
 from django.conf import settings
@@ -36,13 +35,23 @@ from django.conf.urls import url
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home, name='home'),
-    path('restaurant/', include('django.contrib.auth.urls')),
+
+    # path('restaurant/', include('django.contrib.auth.urls')), for login logout if registration templates
+
+    path('restaurant/sign_in/', auth_views.LoginView.as_view(template_name='restaurant/sign_in.html'),name= 'restaurant-sign-in'),
+    path('restaurant/sign_up/',views.restaurant_registration, name= 'restaurant-sign-up'),
+    # path('restaurant/sign_out',auth_views.LoginView.as_view(template_name='restaurant/sign_up.html'),
+    # name= 'restaurant-sign-up'),
+    #lgoout view need redirect
+    # path('restaurant/register/', views.restaurant_registration, name='restaurant-registration'),
+
     path('restaurant/', views.restaurant_home, name = 'restaurant-home'),
-    path('restaurant/register/', views.restaurant_registration, name='resaturant-registration'),
+    
     path('restaurant/account/', views.restaurant_account, name='restaurant-account'),
     path('restaurant/meal/', views.restaurant_meal, name='restaurant-meal'),
     path('restaurant/order/', views.restaurant_order, name='restaurant-order'),
     path('restaurant/report/', views.restaurant_report, name='restaurant-report'),
 
     url(r'^api/social/', include('rest_framework_social_oauth2.urls')),
+    
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

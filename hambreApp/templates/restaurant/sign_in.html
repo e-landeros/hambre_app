@@ -1,12 +1,16 @@
-{% extends 'base.html' %}
+{% extends 'base_signup.html' %}
 
-{% block page %}
+{% block title %}Sign In{% endblock  %}
+
+{% block heading %}Restaurant - Sign in{% endblock  %}
+   
+{% block content %}
     This is the Sign in page
     <form method="POST">
         {% csrf_token %}
         {{ form }}
         <button type="submit">Sign In </button>
     </form>
-{% endblock  %}
 
-
+{% endblock  %}   
+    
