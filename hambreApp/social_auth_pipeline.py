@@ -1,8 +1,9 @@
 from hambreApp.models import Customer, Driver
 
-def create_user_by_type(backend,  request, user, response, *args, **kwargs):
+def create_user_by_type(backend,  request, response, *args, **kwargs):
     if backend.name == 'facebook':
         avatar = 'https://graph.facebook.com/%s/picture?type=large' % response['id']
+        user = response['id']
 
     # if user object is driver and not in db we will crate a new one
     # using user id from request object 
