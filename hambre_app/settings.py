@@ -25,7 +25,7 @@ SECRET_KEY = 'd4b^!95yx_1@c0i#n=zn_9-0mb50&m_11j18t+ssjw9!h%&2pu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.herokuapp.com', 'pacific-dawn-30850.herokuapp.com']
+ALLOWED_HOSTS = ['.herokuapp.com', 'pacific-dawn-30850.herokuapp.com','localhost', '127.0.0.1', '[::1]']
 
 
 # Application definition
@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'hambreApp',
+    'oauth2_provider',
+    'social_django',
+    'rest_framework_social_oauth2',
 ]
 
 MIDDLEWARE = [
@@ -64,7 +67,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.media'
+                'django.template.context_processors.media',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -133,3 +138,19 @@ import dj_database_url
 
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
+
+AUTHENTICATION_BACKENDS = (
+   'rest_framework_social_oauth2.backends.DjangoOAuth2',
+   'django.contrib.auth.backends.ModelBackend',
+   'social_core.backends.facebook.FacebookOAuth2',
+)
+
+# Facebook configuration
+SOCIAL_AUTH_FACEBOOK_KEY = '762955387392911'
+SOCIAL_AUTH_FACEBOOK_SECRET = '39aa339bd7eec56bb8e1683c4493f6aa'
+
+# Define SOCIAL_AUTH_FACEBOOK_SCOPE to get extra permissions from facebook. Email is not sent by default, to get it, you must request the email permission:
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+    'fields': 'id, name, email'
+}

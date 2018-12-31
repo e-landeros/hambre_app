@@ -21,6 +21,7 @@ from hambreApp import views
 from django.views.generic.base import TemplateView
 from django.conf.urls.static import static
 from django.conf import settings
+from django.conf.urls import url
 
 # urlpatterns = [
 #     path('admin/', admin.site.urls),
@@ -38,4 +39,5 @@ urlpatterns = [
     path('restaurant/', include('django.contrib.auth.urls')),
     path('restaurant/', views.restaurant_home, name = 'restaurant-home'),
     path('restaurant/register/', views.restaurant_registration, name='resaturant-registration'),
+    url(r'^api/social/', include('rest_framework_social_oauth2.urls')),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
