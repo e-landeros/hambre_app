@@ -39,14 +39,14 @@ urlpatterns = [
     # path('restaurant/', include('django.contrib.auth.urls')), for login logout if registration templates
 
     path('restaurant/sign_in/', auth_views.LoginView.as_view(template_name='restaurant/sign_in.html'),name= 'restaurant-sign-in'),
-    path('restaurant/sign_up/',views.restaurant_registration, name= 'restaurant-sign-up'),
+    url('restaurant/sign_up/', views.restaurant_sign_up, name= 'restaurant-sign-up'),
+    # path('restaurant/sign_up/', views.restaurant_sign_up, name= 'restaurant-sign-up'),
     # path('restaurant/sign_out',auth_views.LoginView.as_view(template_name='restaurant/sign_up.html'),
     # name= 'restaurant-sign-up'),
     #lgoout view need redirect
     # path('restaurant/register/', views.restaurant_registration, name='restaurant-registration'),
 
     path('restaurant/', views.restaurant_home, name = 'restaurant-home'),
-    
     path('restaurant/account/', views.restaurant_account, name='restaurant-account'),
     path('restaurant/meal/', views.restaurant_meal, name='restaurant-meal'),
     path('restaurant/order/', views.restaurant_order, name='restaurant-order'),
