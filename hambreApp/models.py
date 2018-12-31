@@ -14,7 +14,7 @@ class Restaurant(models.Model):
         return self.name
 
 class Customer(models.Model):
-    user = models.OneToOneField(User, on_delete=models.Cascade, related_name='customer')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='customer')
     #link urls for images
     avatar = models.CharField(max_length=500)
     phone = models.CharField(max_length=50, blank=True)
@@ -24,7 +24,7 @@ class Customer(models.Model):
         return self.user.get_full_name()
 
 class Driver(models.Model):
-    user = models.OneToOneField(User, on_delete=models.Cascade, related_name='driver')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='driver')
     #link urls for images
     avatar = models.CharField(max_length=500)
     phone = models.CharField(max_length=50, blank=True)
