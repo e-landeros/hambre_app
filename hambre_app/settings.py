@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'oauth2_provider',
     'social_django',
     'rest_framework_social_oauth2',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -159,7 +160,7 @@ SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.social_auth.social_details',
     'social_core.pipeline.social_auth.social_uid',
     'social_core.pipeline.social_auth.auth_allowed',
-    'hambreApp.social_auth_pipeline.create_user_by_type',
+    # 'hambreApp.social_auth_pipeline.create_user_by_type',
     'social_core.pipeline.social_auth.social_user',
     'social_core.pipeline.social_auth.associate_user',
     'social_core.pipeline.social_auth.load_extra_data',

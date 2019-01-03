@@ -1,14 +1,29 @@
 {% extends 'base_signup.html' %}
+    {# Load the tag library #}
+    {% load bootstrap4 %}
+
+    {# Load CSS and JavaScript #}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+
+    {# Display django.contrib.messages as Bootstrap alerts #}
+    {% bootstrap_messages %}
 
 {% block title %}Sign Up{% endblock  %}
 
 {% block heading %}Restaurant - Sign up{% endblock  %}
 
+
+
 {% block content %}
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ user_form }}
-    {{ restaurant_form }}
-    <button type="submit">Sign Up</button>
+<form method="post" class="form" enctype="multipart/form-data">
+  {% csrf_token %}
+  {% bootstrap_form user_form %}
+  {% bootstrap_form restaurant_form %}
+  {% buttons %}
+    <button type="submit" class="btn btn-primary">
+      Submit
+    </button>
+  {% endbuttons %}
 </form>
 {% endblock  %}

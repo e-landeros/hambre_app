@@ -1,15 +1,24 @@
 {% extends 'base_signup.html' %}
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+    {% bootstrap_messages %}
 
 {% block title %}Sign In{% endblock  %}
 
 {% block heading %}Restaurant - Sign in{% endblock  %}
    
 {% block content %}
-    This is the Sign in page
+    
     <form method="POST">
         {% csrf_token %}
-        {{ form }}
-        <button type="submit">Sign In </button>
+        {% bootstrap_form form %}
+  
+    {% buttons %}
+        <button type="submit" class="btn btn-primary">
+        Submit
+        </button>
+    {% endbuttons %}
     </form>
 
 {% endblock  %}   
