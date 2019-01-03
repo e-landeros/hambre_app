@@ -147,8 +147,9 @@ AUTHENTICATION_BACKENDS = (
 )
 
 # Facebook configuration
-SOCIAL_AUTH_FACEBOOK_KEY = '762955387392911'
-SOCIAL_AUTH_FACEBOOK_SECRET = '39aa339bd7eec56bb8e1683c4493f6aa'
+SOCIAL_AUTH_FACEBOOK_KEY = '413669162707274'
+
+SOCIAL_AUTH_FACEBOOK_SECRET = '205102206d2c963fca5597473ef4d6d4'
 
 # Define SOCIAL_AUTH_FACEBOOK_SCOPE to get extra permissions from facebook. Email is not sent by default, to get it, you must request the email permission:
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
@@ -160,7 +161,7 @@ SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.social_auth.social_details',
     'social_core.pipeline.social_auth.social_uid',
     'social_core.pipeline.social_auth.auth_allowed',
-    # 'hambreApp.social_auth_pipeline.create_user_by_type',
+    'hambreApp.social_auth_pipeline.create_user_by_type',
     'social_core.pipeline.social_auth.social_user',
     'social_core.pipeline.social_auth.associate_user',
     'social_core.pipeline.social_auth.load_extra_data',
