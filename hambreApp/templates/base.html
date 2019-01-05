@@ -10,9 +10,11 @@
 
     {# Load the tag library #}
     {% load bootstrap4 %}
-
+    
+    
     {# Load CSS and JavaScript #}
     {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
     {% bootstrap_javascript jquery='full' %}
 
     {# Display django.contrib.messages as Bootstrap alerts #}
