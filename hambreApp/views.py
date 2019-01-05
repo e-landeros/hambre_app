@@ -28,6 +28,10 @@ def restaurant_order(request):
 def restaurant_report(request):
     return render(request, 'restaurant/report.html', {})
 
+@login_required(login_url='/restaurant/sign-in/')
+def restaurant_sign_out(request):
+    return redirect(restaurant_home)
+
 def restaurant_sign_up(request):
     user_form = UserForm()
     restaurant_form = RestaurantForm()

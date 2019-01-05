@@ -131,6 +131,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
@@ -148,7 +149,6 @@ AUTHENTICATION_BACKENDS = (
 
 # Facebook configuration
 SOCIAL_AUTH_FACEBOOK_KEY = '413669162707274'
-
 SOCIAL_AUTH_FACEBOOK_SECRET = '205102206d2c963fca5597473ef4d6d4'
 
 # Define SOCIAL_AUTH_FACEBOOK_SCOPE to get extra permissions from facebook. Email is not sent by default, to get it, you must request the email permission:
@@ -167,3 +167,7 @@ SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.social_auth.load_extra_data',
     'social_core.pipeline.user.user_details',
 )
+
+
+SOCIAL_AUTH_REDIRECT_IS_HTTPS = False
+SOCIAL_AUTH_POSTGRES_JSONFIELD = True
