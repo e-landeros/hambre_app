@@ -15,10 +15,12 @@
         {% bootstrap_form form %}
   
     {% buttons %}
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" class="btn btn-primary btn-lg">
         Sign In
         </button>
     {% endbuttons %}
+    <br>
+    <p>Want to sign up your restaurant?</p>
     <a class="btn btn-outline-secondary" href="{% url 'restaurant-sign-up' %}">Restaurant Sign Up</a>
 
     </form>

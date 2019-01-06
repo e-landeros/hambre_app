@@ -13,9 +13,9 @@
 
     {# Load CSS and JavaScript #}
     {% bootstrap_css %}
-    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    
     {% bootstrap_javascript jquery='full' %}
-
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
     {# Display django.contrib.messages as Bootstrap alerts #}
     {% bootstrap_messages %}
 </head>
