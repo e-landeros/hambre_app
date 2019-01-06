@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from hambreApp.forms import UserForm, RestaurantForm
+from hambreApp.forms import UserForm, RestaurantForm, UserFormForEdit
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 
@@ -14,6 +14,9 @@ def restaurant_home(request):
 
 @login_required(login_url='/restaurant/sign-in/')
 def restaurant_account(request):
+    user_form = UserFormForEdit(instance = request.user)
+    restaurant_form = RestaurantForm(instance= request.user.restaurant )
+    
     return render(request, 'restaurant/account.html', {})
 
 @login_required(login_url='/restaurant/sign-in/')

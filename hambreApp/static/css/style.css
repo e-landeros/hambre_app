@@ -27,7 +27,7 @@ body {
     left:0;
     padding:0;
     background-color: #3f3f63;
-    overflow:auto;
+    overflow:hidden;
 }
 
 /* SIDEBAR  - HEADER */
@@ -82,7 +82,7 @@ body {
 /* SIDEBAR - LOGOUT */
 
 .sidebar > div:last-child {
-    padding:10px;
+    padding-bottom: 15px;
 }
 
 .sidebar > div:last-child .btn{
