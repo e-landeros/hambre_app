@@ -1,5 +1,8 @@
 {% extends 'restaurant/base.html' %}
+{% load bootstrap4 %}
 
 {% block page %}
 Restaurant Meal
+meals page 
+<a class="btn btn-primary" href="{% url 'restaurant-add-meal' %}" role="button">Add Meal</a>
 {% endblock  %}
