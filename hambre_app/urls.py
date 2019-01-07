@@ -28,7 +28,7 @@ urlpatterns = [
     path('',views.home, name='home'),
 
     path('restaurant/sign-in/', auth_views.LoginView.as_view(template_name='restaurant/sign_in.html'),name= 'restaurant-sign-in'),
-    path('restaurant/sign-out', views.restaurant_sign_out, name='restaurant-sign-out'),
+    path('restaurant/sign-out/', views.restaurant_sign_out, name='restaurant-sign-out'),
     path('restaurant/sign-up/', views.restaurant_sign_up, name= 'restaurant-sign-up'),
 
     path('restaurant/', views.restaurant_home, name ='restaurant-home'),

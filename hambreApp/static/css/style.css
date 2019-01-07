@@ -1,5 +1,5 @@
 body {
-    padding-top:50px;
+    /* padding-top:50px; */
     background-color: #EDF2F5;
     overflow: auto;
 }
@@ -27,7 +27,7 @@ body {
     left:0;
     padding:0;
     background-color: #3f3f63;
-    overflow:hidden;
+    overflow:auto;
 }
 
 /* SIDEBAR  - HEADER */
@@ -51,7 +51,7 @@ body {
 .sidebar .list-group > span {
     color: #b6b4c1;
     display:block;
-    margin-top:20px;
+    margin-top:15px;
     padding:20px 30px;
     font-size:16px;
     font-weight: 300;
