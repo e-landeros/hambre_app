@@ -2,7 +2,40 @@
 {% load bootstrap4 %}
 
 {% block page %}
-Restaurant Meal
-meals page 
-<a class="btn btn-primary" href="{% url 'restaurant-add-meal' %}" role="button">Add Meal</a>
+<div class="card bg-primary text-white mb-3">
+    <div class="card-header bg-blue">Header</div>
+    <div class="card-body">
+        <h4 class="card-title">Card Title</h4>
+        <div class="text-right">
+            <a class="btn btn-primary" href="{% url 'restaurant-add-meal' %}" role="button">Add Meal</a>
+        </div>
+        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+    <table class="table">
+        <thead>
+            <tr class="bg-gray text-white">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Short Description</th>
+                <th>Price</th>
+                <th class="text-center">Image</th>
+            </tr>
+        </thead>
+        <tbody>
+                {% for meal in meals %}
+            <tr>
+                <td scope="row">{{ meal.id }}</td>
+                <td><a href="{% url 'restaurant-edit-meal' meal.id%}">{{ meal.name }}</a></td>
+                <td>{{ meal.short_description }}</td>
+                <td>{{ meal.price }}</td>
+                <td class="text-center">
+                    <img src="{{ MEDIA_URL }}{{ meal.image }}" class="rounded-circle" alt="" width="50" height="50">
+                </td>
+            </tr>
+                {% endfor %}
+            
+        </tbody>
+    </table>
+    </div>
+</div>
+
 {% endblock  %}
