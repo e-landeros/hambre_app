@@ -2,17 +2,16 @@
 {% load bootstrap4 %}
 
 {% block page %}
-<div class="card bg-primary text-white mb-3">
-    <div class="card-header bg-blue">Header</div>
+<div class="card mb-3">
+    <div class="card-header bg-blue mb-2 text-center text-white"><h1>Meals</h1></div>
     <div class="card-body">
-        <h4 class="card-title">Card Title</h4>
-        <div class="text-right">
+        <div class="text-right mb-3">
             <a class="btn btn-primary" href="{% url 'restaurant-add-meal' %}" role="button">Add Meal</a>
         </div>
-        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+
     <table class="table">
         <thead>
-            <tr class="bg-gray text-white">
+            <tr class="bg-secondary text-white">
                 <th>ID</th>
                 <th>Name</th>
                 <th>Short Description</th>
@@ -22,9 +21,9 @@
         </thead>
         <tbody>
                 {% for meal in meals %}
-            <tr>
+            <tr style="border-bottom: 1px #000000 solid;">
                 <td scope="row">{{ meal.id }}</td>
-                <td><a href="{% url 'restaurant-edit-meal' meal.id%}">{{ meal.name }}</a></td>
+                <td><a href="#">{{ meal.name }}</a></td>
                 <td>{{ meal.short_description }}</td>
                 <td>{{ meal.price }}</td>
                 <td class="text-center">

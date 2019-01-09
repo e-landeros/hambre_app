@@ -31,7 +31,7 @@ def restaurant_account(request):
 @login_required(login_url='/restaurant/sign-in/')
 def restaurant_meal(request):
     meals = Meal.objects.filter(restaurant = request.user.restaurant).order_by("-id")
-    return render(request, 'restaurant/meal.html', {"meals": meal })
+    return render(request, 'restaurant/meal.html', {"meals": meals })
 
 @login_required(login_url='/restaurant/sign-in/')
 def restaurant_add_meal(request):
