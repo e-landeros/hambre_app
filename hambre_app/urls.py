@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from hambreApp import views
+from hambreApp import views, apis
 from django.contrib.auth import views as auth_views
 from django.views.generic.base import TemplateView
 from django.conf.urls.static import static
@@ -42,4 +42,5 @@ urlpatterns = [
     url(r'^api/social/', include('rest_framework_social_oauth2.urls')),
     # /convert-token (sign in/sign up)
     #revoke-token (sign out)
+    url(r'^api/customer/restaurants/$', apis.customer_get_restaurant),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
