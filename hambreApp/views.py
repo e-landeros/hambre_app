@@ -36,16 +36,13 @@ def restaurant_meal(request):
 @login_required(login_url='/restaurant/sign-in/')
 def restaurant_add_meal(request):
     form = MealForm()
-
     if request.method == "POST":
         form = MealForm(request.POST, request.FILES)
-
         if form.is_valid():
             meal = form.save(commit=False)
             meal.restaurant = request.user.restaurant
             meal.save()
             return redirect(restaurant_meal)
-
     return render(request, 'restaurant/add_meal.html', {
         "form" : form
     })
